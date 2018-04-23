@@ -1,7 +1,7 @@
-def pigLatin(mondat):
-    L=mondat.split()
+def pigLatin(text):
+    L=text.split()
     for i in range(len(L)):
-        print(L[1:(len(L[i])-1)]+L[0]+'ay')
+        return L[1:(len(L[i])-1)]+L[0]+'ay'
 
 
-print(pigLatin(mondat="Csinalom a beadandot"))
+print(pigLatin(text="The quick brown fox"))

@@ -1,0 +1,7 @@
+def pigLatin(mondat):
+    L=mondat.split()
+    for i in range(len(L)):
+        print(L[1:(len(L[i])-1)]+L[0]+'ay')
+
+
+print(pigLatin(mondat="Csinalom a beadandot"))

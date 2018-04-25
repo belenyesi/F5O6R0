@@ -1,0 +1,10 @@
+def longestPS(string):
+    L=string.split()
+    max=''
+    for i in range(len(L)):
+        if L[i]==L[i][-1::-1]:
+            if len(L[i])>len(max):
+                max=L[i]
+        i+=1
+    return max
+print(longestPS('szendvics 0990 alma körte kék 1111111 laptop 0000001000000'))

@@ -1,7 +1,19 @@
-def pigLatin(text):
-    L=text.split()
-    for i in range(len(L)):
-        return L[1:(len(L[i])-1)]+L[0]+'ay'
+def piglatin(text):
+    lista=text.split()
+    for szo in range(len(lista)):
+        lista[szo]=lista[szo][1:]+lista[szo][0]+'ay'
 
+    mondat = ''
+    for x in range(len(lista)):
+        mondat += (lista[x] + ' ')
 
-print(pigLatin(text="The quick brown fox"))
+    for k in range(len(lista)):
+        lista[k]=lista[k][len(lista[k])-3]+lista[k][0:len(lista[k])-3]
+    mondat2 = ''
+    for x in range(len(lista)):
+        mondat2+=(lista[x]+' ')
+
+    return ('text to piglatin: ',mondat, 'back to english: ',mondat2)
+
+sz='The quick brown fox'
+print(piglatin((sz)))

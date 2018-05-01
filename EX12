@@ -1,0 +1,7 @@
+def prim_e(n):
+    for oszto in range(2, n//2+1):
+        if n% oszto ==0:
+            return False
+    return True
+n = int(input('number: '))
+print(prim_e(n))

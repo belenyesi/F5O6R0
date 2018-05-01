@@ -15,5 +15,5 @@ def piglatin(text):
 
     return ('text to piglatin: ',mondat, 'back to english: ',mondat2)
 
-sz='The quick brown fox'
+sz=input('What do you want to translate?: ')
 print(piglatin((sz)))

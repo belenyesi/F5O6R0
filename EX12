@@ -3,5 +3,10 @@ def prim_e(n):
         if n% oszto ==0:
             return False
     return True
-n = int(input('number: '))
-print(prim_e(n))
+a=2
+darab=0
+while darab <10001:
+    if prim_e(a)==True:
+        darab+=1  #prim db szama
+    a+=1  #a vizsgalt szam
+print(a-1)

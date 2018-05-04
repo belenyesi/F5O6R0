@@ -1,10 +1,10 @@
-def longestPS(string):
-    L=string.split()
-    max=''
-    for i in range(len(L)):
-        if L[i]==L[i][-1::-1]:
-            if len(L[i])>len(max):
-                max=L[i]
-        i+=1
-    return max
-print(longestPS('szendvics 0990 alma körte kék 1111111 laptop 0000001000000'))
+def longestPS(s):
+    palindrom = ''
+    for i in range(len(s)):
+        for j in range(i+1,len(s)+1):
+            if (s[i:j]).lower()==(s[i:j][::-1]).lower():   #nem különbözteti meg a kis és nagybetűket
+                if j-i > len(palindrom):
+                    palindrom = s[i:j]
+    return palindrom
+
+print(longestPS('kék 100 asztal kerek a kerek nyár')

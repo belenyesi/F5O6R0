@@ -1,19 +1,20 @@
-def piglatin(text):
+def englishToPigLatin(text):
     lista=text.split()
     for szo in range(len(lista)):
         lista[szo]=lista[szo][1:]+lista[szo][0]+'ay'
-
     mondat = ''
     for x in range(len(lista)):
         mondat += (lista[x] + ' ')
+    return mondat.capitalize()
 
-    for k in range(len(lista)):
-        lista[k]=lista[k][len(lista[k])-3]+lista[k][0:len(lista[k])-3]
+def pigLatinToEnglish(text2):
+    lista2=text2.split()
+    for k in range(len(lista2)):
+        lista2[k]=lista2[k][len(lista2[k])-3]+lista2[k][0:len(lista2[k])-3]
     mondat2 = ''
-    for x in range(len(lista)):
-        mondat2+=(lista[x]+' ')
+    for x in range(len(lista2)):
+        mondat2+=(lista2[x]+' ')
+    return mondat2.capitalize()
 
-    return ('text to piglatin: ',mondat, 'back to english: ',mondat2)
-
-sz=input('What do you want to translate?: ')
-print(piglatin((sz)))
+print(englishToPigLatin('The quick brown fox'))
+print(pigLatinToEnglish('Hetay uickqay rownbay oxfay'))

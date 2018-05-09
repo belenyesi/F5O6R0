@@ -1,20 +1,41 @@
-def englishToPigLatin(text):
+import string
+
+def englishToPiglatin(text):
     lista=text.split()
     for szo in range(len(lista)):
-        lista[szo]=lista[szo][1:]+lista[szo][0]+'ay'
+        if lista[szo][-1] in string.punctuation:                            #ha a szó végén van pl "," akkor azt a lefordított szó
+            tmp=lista[szo][-1]                                              #végére tesszük különben a vessző után tenné hozzá az "ay"-t
+            lista[szo]=lista[szo][1:len(lista[szo])-1]+lista[szo][0]+'ay'+tmp
+            szo+=1
+        elif '1'<=lista[szo]<='9':                                          #ha szöveg, számmá alakítom, módosítatlanul hagyom,                                                                     
+            lista[szo]=int(lista[szo])                                      #vissza konvertálom szöveggé
+            lista[szo]=lista[szo]                                           #mert mikor a mondathoz akarom fűzni, számként 
+            lista[szo]=str(lista[szo])                                      #nem fog sikerülni(error)
+        else:
+            lista[szo]=lista[szo][1:]+lista[szo][0]+'ay'
     mondat = ''
     for x in range(len(lista)):
         mondat += (lista[x] + ' ')
     return mondat.capitalize()
 
 def pigLatinToEnglish(text2):
-    lista2=text2.split()
-    for k in range(len(lista2)):
-        lista2[k]=lista2[k][len(lista2[k])-3]+lista2[k][0:len(lista2[k])-3]
+    list=text2.split()
+    for k in range(len(list)):
+        if list[k][-1] in string.punctuation:
+            temp = list[k][-1]
+            list[k]=list[k][len(list[k])-4]+list[k][0:len(list[k])-4]+temp          #-4. betű az a betű ami angolul az első betű
+        elif '1'<=list[k]<='9':
+            list[k]=int(list[k])
+            list[k]=list[k]
+            list[k]=str(list[k])
+        else:
+            list[k]=list[k][len(list[k])-3]+list[k][0:len(list[k])-3]          
     mondat2 = ''
-    for x in range(len(lista2)):
-        mondat2+=(lista2[x]+' ')
+    for x in range(len(list)):
+        mondat2+=(list[x]+' ')
     return mondat2.capitalize()
 
-print(englishToPigLatin('The quick brown fox'))
+print(englishToPiglatin('The quick brown fox'))
+print(englishToPiglatin('Excuse me, could you give me 3 of those?'))
 print(pigLatinToEnglish('Hetay uickqay rownbay oxfay'))
+print(pigLatinToEnglish('Xcuseeay emay, ouldcay ouyay ivegay emay 3 foay hosetay?'))

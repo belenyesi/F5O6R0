@@ -1,10 +1,23 @@
+#7. Exercise Write a program that finds the longest palindromic substring of a given string. Try to be as efficient as possible! 
+
+
+def onlyStr(x):
+    newS=''
+    for i in x:
+        if 'a'<= i <='z':
+            newS+=i
+        elif 'A' <= i <='Z':
+            newS+=i.lower()
+    return newS
+
 def longestPS(s):
     palindrom = ''
     for i in range(len(s)):
         for j in range(i+1,len(s)+1):
-            if (s[i:j]).lower()==(s[i:j][::-1]).lower():   #nem különbözteti meg a kis és nagybetűket
+            s=onlyStr(s)
+            if s[i:j]==s[i:j][::-1]:
                 if j-i > len(palindrom):
                     palindrom = s[i:j]
     return palindrom
 
-print(longestPS('kék 100 asztal kerek a kerek nyár')
+print(longestPS('asdasdsd Barbara arab rab kerek kerek'))
